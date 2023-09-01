@@ -1,38 +1,14 @@
-# create-svelte
+# AI Factory
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Project Description
 
-## Creating a project
+The idea for this project is to provide a graphical user interface for orchestraiting groups of AI agents. Currently the project is very much in its infancy, but the idea is to provide a framework for creating and running jobs which can be comprised of multiple agents performing different tasks, as well as other components such as data collection, conditial logic, and more. If you have ever used Azure Data Factory, the idea is similar, but for AI agents instead of data.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Technologies
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The project is built with sveltekit, Typescript, and TailwindCSS.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
-## Developing
+## Credits
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+I used many of the components from https://github.com/mohamadadithya/take-mine as a starting point for this project. 
