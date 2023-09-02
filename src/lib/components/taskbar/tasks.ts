@@ -12,7 +12,6 @@ export type TaskData = PrompterTaskData | FactoryTaskData;
 
 export interface Task{
     name: string;
-    kind: 'prompter' | 'factory';
     icon: ComponentType;
     component: ComponentType;
     data: TaskData;
@@ -21,7 +20,6 @@ export interface Task{
 export function prompter(name: string, modelEndpoint: string, messages: MessageData[]): PrompterTask{
     return {
         name,
-        kind: 'prompter',
         icon: CarbonBot,
         component: Prompter,
         data: {modelEndpoint, messages}
@@ -30,7 +28,6 @@ export function prompter(name: string, modelEndpoint: string, messages: MessageD
 
 export type FactoryTaskData = {models: any};
 export interface FactoryTask extends Task{
-    kind: 'factory';
     icon: ComponentType<Carbon3dCurveManual>;
     component: ComponentType<Builder>;
     data: FactoryTaskData;
@@ -38,7 +35,6 @@ export interface FactoryTask extends Task{
 export function factory(name: string, models: any): FactoryTask{
     return {
         name,
-        kind: 'factory',
         icon: Carbon3dCurveManual,
         component: Builder,
         data: {models}

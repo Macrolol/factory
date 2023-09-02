@@ -6,7 +6,6 @@ import type Prompter from "./Prompter.svelte";
 export type PrompterTaskData = {modelEndpoint: string; messages: MessageData[]};
 export interface PrompterTask {
     name: string;
-    kind: 'prompter'; 
     icon: ComponentType<CarbonBot>;
     component: ComponentType<Prompter>;
     data: PrompterTaskData;
