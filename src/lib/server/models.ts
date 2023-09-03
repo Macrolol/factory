@@ -1,5 +1,5 @@
 import { OPENAI_API_KEY } from '$env/static/private';
-import type { LLM } from "langchain/llms";
+import type { LLM } from "langchain";
 import { OpenAI } from "langchain/llms/openai";
 
 interface Model<T extends LLM> {
