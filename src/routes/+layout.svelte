@@ -1,40 +1,31 @@
-
 <script lang="ts">
-  	import "../app.postcss";
-  	import "../app.postcss";
-	import Sidebar from '$lib/components/Sidebar.svelte';
-	import Header from '$lib/components/Header.svelte';
-	import Taskbar from "$lib/components/taskbar/Taskbar.svelte";
-	import { Settings } from '$lib';
-	import { routes  } from '$lib';
-	import { page } from '$app/stores';
-	const { SITE_NAME } = Settings
+	import "../app.postcss";
+	import "../app.postcss";
+	import { Settings } from "$lib";
+	import { invalidate } from "$app/navigation";
+	import { onMount } from "svelte";
+	import type { LayoutData } from "./$types";
+	const { SITE_NAME } = Settings;
 
-$: routeId = $page.url.pathname;
+	export let data: LayoutData;
 
-$: currentRoute = routes.find((route) => {
-	if (routeId !== '/' && route.path.includes($page.url.pathname)){
-		console.log(route);
-		return true;
-	}
-	return false;
-});
+	//Supabase event listener
+	$: ({ supabase, session } = data);
+	onMount(() => {
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((event, _session) => {
+			if (_session?.expires_at !== session?.expires_at) {
+				invalidate("supabase:auth");
+			}
+		});
 
+		return () => subscription.unsubscribe();
+	});
 </script>
 
 <svelte:head>
 	<title>{SITE_NAME}</title>
 </svelte:head>
 
-<section id="body">
-	<div class="flex h-screen overflow-hidden">
-		<Sidebar options={routes}/>
-		<div class="flex flex-col flex-auto w-full">
-			<Header {currentRoute}/>
-			<main class="h-full overflow-hidden px-0 pt-0 pb-0">
-				<slot />
-			</main>
-			<Taskbar/>
-		</div>
-	</div>
-</section>
+<slot/>

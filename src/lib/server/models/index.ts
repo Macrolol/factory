@@ -11,18 +11,18 @@ interface ModelWrapper{
 }
 
 
-export async function getModels(): Promise<ModelWrapper[]>{
+export async function getModels(): Promise<Omit<ModelWrapper, 'model'>[]>{
     return [{
                 name: "GPT-3",
                 description: "GPT-3 is a language model developed by OpenAI. It is the third-generation language prediction model in the GPT-n series created by OpenAI, a San Francisco-based artificial intelligence research laboratory.",
                 // Defaults to "text-davinci-003" if no model provided.            
-                model: new OpenAI({ openAIApiKey: OPENAI_API_KEY }),
+                //model: new OpenAI({ openAIApiKey: OPENAI_API_KEY }),
                 route: "./gpt3"
         },
         {
                 name: "GPT-4",
                 description: "GPT-4 is a language model developed by OpenAI. It is the fourth-generation language prediction model in the GPT-n series created by OpenAI, a San Francisco-based artificial intelligence research laboratory.",
-                model: new OpenAI({ openAIApiKey: OPENAI_API_KEY, modelName: "gpt-4" }),
+                //model: new OpenAI({ openAIApiKey: OPENAI_API_KEY, modelName: "gpt-4" }),
                 route: "./gpt4"
     }];
 }
