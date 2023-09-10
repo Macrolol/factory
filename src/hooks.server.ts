@@ -19,8 +19,6 @@ function initSupabase(event: any) {
     }
 }
 
-
-
 export const handle: Handle = async ({ event, resolve }) => {
     event.locals = initSupabase(event);
 
