@@ -55,11 +55,10 @@ $: routeId = $page.url.pathname;
     </div>
     <div class="absolute inset-x-0 bottom-0 flex p-1">
         <p class="font-extralight text-md w-2/3 p-0 {$isOpenSidebar ? '': 'hidden'} "> © 2023 <br/> Michael Dormon </p>
-            <button class="bg-sky-600 rounded-md font-medium text-white hover:text-blue-800 w-{$isOpenSidebar ? '1/3': 'full'} p-3"
+            <button class="bg-sky-600 rounded-md font-medium text-white hover:text-blue-800 {$isOpenSidebar ? 'w-1/3': 'w-full'} p-3 "
                     on:click={()=> {isOpenSidebar.set(!$isOpenSidebar)}}
                     type="button">
             {$isOpenSidebar ? "<<" : ">>"}
         </button>
-        
     </div>
 </aside>
