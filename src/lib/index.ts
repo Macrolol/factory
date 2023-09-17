@@ -1,4 +1,5 @@
 import CarbonAppConnectivity from '~icons/carbon/app-connectivity'
+import CarbonApps from '~icons/carbon/apps'
 import Carbon3dPrintMesh from '~icons/carbon/3d-print-mesh'
 import CarbonBrushFreehand from '~icons/carbon/brush-freehand'
 import CarbonAdd from '~icons/carbon/add'
@@ -20,6 +21,11 @@ export interface Route {
 };
 
 export const routes: Route[] = [
+    {
+        name: "Dashboard",
+        icon: CarbonApps,
+        path: "/dashboard"
+    },
     {
         name: "Factories",
         icon: CarbonAppConnectivity,
